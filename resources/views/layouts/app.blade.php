@@ -19,11 +19,63 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+    @font-face {
+    font-family:'prophetlight';
+    src:url(//font/prophet-light-webfont.woff2) format('woff2'), url(//font/prophet-light-webfont.woff) format('woff');
+    font-weight:normal;
+    font-style:normal
+    }
+    @font-face {
+        font-family:'prophetmedium';
+        src:url(font/prophet-medium-webfont.woff2) format('woff2'), url(font/prophet-medium-webfont.woff) format('woff');
+        font-weight:normal;
+        font-style:normal
+    }
+    @font-face {
+        font-family:'prophetregular';
+        src:url(font/prophet-regular-webfont.woff2) format('woff2'), url(font/prophet-regular-webfont.woff) format('woff');
+        font-weight:normal;
+        font-style:normal
+    }
+    body {
+        font-size:100%;
+        font-family:"prophetregular", sans-serif;
+        font-weight:300;
+        color:#40404C;
+        line-height:1.3;
+        background:#fff
+    }
+    input, textarea, select, button {
+        font-family:"prophetregular", sans-serif;
+        font-weight:300;
+        color:#40404C
+    }
+    .nav-link, .navbar > a {
+        font-size:1.55555555555555555555em;
+        font-family:'prophetmedium', sans-serif;
+        /*color:#40404C;
+        margin-bottom: .64285714285714285714em;
+        */
+        line-height:1.2;
+    }
+    .form-control {
+        line-height: 2.6;
+    }
+    nav{
+        border-top: 2px solid #00b1b3;
+    }
+    a.nav-link.register { color:#00b1b3 !important;}
+    a.nav-link.login { color: #ffffff !important;} 
+
+
+
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -41,8 +93,8 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                            <li><a class="nav-link login" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li><a class="nav-link register" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -64,7 +116,6 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
         </nav>
 
         <main class="py-4">
